@@ -4,4 +4,7 @@ node_modules
 lib
 coverage
 _book
-tmp.js
+config/*
+!config/*.example.js
+fakedb/custom/*/*
+!fakedb/custom/*/*.example.*

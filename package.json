@@ -5,14 +5,13 @@
   "scripts": {
     "start": "node server.js",
     "fakedb": "node ./fakedb/server.js",
-    "build": "NODE_ENV=production webpack --config webpack.config.prod.js --progress --profile --colors"
   },
   "dependencies": {
+    "body-parser": "^1.15.2",
     "express": "^4.13.4",
     "express-delay": "^0.1.0",
     "http-proxy": "^1.13.3",
     "json-server": "^0.8.14"
   },
-  "devDependencies": {
-  }
+  "devDependencies": {}
 }
