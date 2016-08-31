@@ -6,11 +6,12 @@ var server = jsonServer.create()
 var faked = require('./faked');
 var router = jsonServer.router(faked.db);
 var middlewares = jsonServer.defaults()
-
-var port = 10012;
+var env = require('../config/env');
 
 // delay 0.5 sec to emulate network latency
-server.use(delay(500));
+var delayInSec = env.delay || [200, 500];
+var preparedDelay = typeof delayInSec === 'number' ? delay(delayInSec) : delay.apply(delay, env.delay)
+server.use(preparedDelay);
 
 server.use(bodyParser.json());
 server.use(bodyParser.urlencoded({ extended: false }));
@@ -24,10 +25,10 @@ Object.keys(faked.routes).forEach(key => {
 
 // Use default router
 server.use(router)
-server.listen(port, function (error) {
+server.listen(env.fakedbPort, function (error) {
   if (error) {
     console.error(error);
   } else {
-    console.info('==> 🌎  JSON Server is running on port %s', port);
+    console.info('==> 🌎  JSON Server is running on port %s', env.fakedbPort);
   }
 })
