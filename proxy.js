@@ -7,8 +7,9 @@ var proxy = httpProxy.createProxyServer({
   autoRewrite: true,
 });
 
-proxy.on('error', function(e) {
+proxy.on('error', function(e, req, res) {
   console.log(e);
+  res.send('Backend Proxy: Something is broken');
 })
 
 function removeRightSlash(str) {
