@@ -7,15 +7,15 @@ var emailData = { data : { email: 'test@test.com'}};
 
 var zipcodeData = { data: { city: 'New York', state: 'NY', areaCode: '212', timeZone: 'E' } };
 
-router.get('/svc/verify/phone', function(req, res) {
+router.get('/svc/verify/phone/:phone', function(req, res) {
   res.json(phoneData);
 });
 
-router.get('/svc/verify/emailData', function(req, res) {
+router.get('/svc/verify/emailData/:email', function(req, res) {
   res.json(phoneData);
 });
 
-router.get('/svc/verify/zipcodeData', function(req, res) {
+router.get('/svc/verify/zipcodeData/:zipcode', function(req, res) {
   res.json(phoneData);
 });
 
