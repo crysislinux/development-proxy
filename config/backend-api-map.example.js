@@ -4,12 +4,14 @@
 //   '/v0|http://luo-gang.luo.connect360.dev/v0',
 //   '/svc|http://luo-gang.luo.connect360.dev/svc',
 // ]
+var env = require('./env');
 
 var apis = [
   '/auth|http://connect360-dev.herokuapp.com/auth',
   '/api|http://connect360-dev.herokuapp.com/api',
   '/v0|http://connect360-dev.herokuapp.com/v0',
-  '/svc|http://connect360-dev.herokuapp.com/svc',
+  // '/svc|http://connect360-dev.herokuapp.com/svc',
+  `/svc|http://localhost:${env.fakedbPort}/svc`,
 ];
 
 module.exports = apis;
